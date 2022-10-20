@@ -3,11 +3,13 @@ $ curl -X POST https://srvshyweb.yucatan.gob.mx/cgi-bin/wspd_cgi.sh/WService=wsi
 
 -- obtener peticion de reemplacamiento   
 $ curl -w "@/workspaces/nodes-tester/curl_format.txt" -o /dev/null -s "https://reemplacamiento.yucatan.gob.mx/"
-
-$ curl --trace dump https://reemplacamiento.yucatan.gob.mx/
-
-$ lsb_release -a
-
 $ curl -o /dev/null -s -w 'Establish Connection: %{time_connect}s\nStart_Transfer: %{time_starttransfer}s\nTotal: %{time_total}s\n' https://reemplacamiento.yucatan.gob.mx/
 
+$ lsb_release -a
 $ hostname --ip-address
+
+-- Solicitar presupuesto
+curl --insecure -d "cboTramite=11&flnPlaca=ZBDB&flnPlacanumero=000853&flnSerie=9BFUT35F358661768" -X POST https://srvshyweb.yucatan.gob.mx/cgi-bin/wspd_cgi.sh/WService=wspvehicular/wget_data.r
+
+curl --insecure -w "@/workspaces/nodes-tester/curl_format.txt" -o /dev/null -d "cboTramite=11&flnPlaca=ZBDB&flnPlacanumero=000853&flnSerie=9BFUT35F358661768" -X POST https://srvshyweb.yucatan.gob.mx/cgi-bin/wspd_cgi.sh/WService=wspvehicular/wget_data.r
+
