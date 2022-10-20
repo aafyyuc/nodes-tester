@@ -1,3 +1,13 @@
 -- request para validar servicios progress de manera externa
-curl -X POST https://srvshyweb.yucatan.gob.mx/cgi-bin/wspd_cgi.sh/WService=wsingresos/internet/compartido/pValidaTipoDeclaracion.r -H 'Content-Type:application/x-www-form-urlencoded' --insecure --data scRegimenPrefijo-frm=.
+$ curl -X POST https://srvshyweb.yucatan.gob.mx/cgi-bin/wspd_cgi.sh/WService=wsingresos/internet/compartido/pValidaTipoDeclaracion.r -H 'Content-Type:application/x-www-form-urlencoded' --insecure --data scRegimenPrefijo-frm=.
 
+-- obtener peticion de reemplacamiento   
+$ curl -w "@/workspaces/nodes-tester/curl_format.txt" -o /dev/null -s "https://reemplacamiento.yucatan.gob.mx/"
+
+$ curl --trace dump https://reemplacamiento.yucatan.gob.mx/
+
+$ lsb_release -a
+
+$ curl -o /dev/null -s -w 'Establish Connection: %{time_connect}s\nStart_Transfer: %{time_starttransfer}s\nTotal: %{time_total}s\n' https://reemplacamiento.yucatan.gob.mx/
+
+$ hostname --ip-address
