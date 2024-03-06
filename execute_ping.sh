@@ -13,7 +13,7 @@ for i in $(eval echo {$1..$2}); do
     echo "fecha_fin="$(date '+%Y-%m-%d %H:%M:%S')
     if [ $i -ne 1 ] 
     then
-        sleep 90s  
+        sleep 5s  
     fi
 done
 
