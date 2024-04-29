@@ -13,3 +13,24 @@ curl --insecure -d "cboTramite=11&flnPlaca=ZBDB&flnPlacanumero=000853&flnSerie=9
 
 curl --insecure -w "@/workspaces/nodes-tester/curl_format.txt" -o /dev/null -d "cboTramite=11&flnPlaca=ZBDB&flnPlacanumero=000853&flnSerie=9BFUT35F358661768" -X POST https://srvshyweb.yucatan.gob.mx/cgi-bin/wspd_cgi.sh/WService=wspvehicular/wget_data.r
 
+POST https://wsseguridad.yucatan.gob.mx/WSSession.asmx/IniciaSesion
+Content-Type: application/json
+
+{
+    "usuario":"EAAAACzY7FnqgEmLlyhlJQHdeyTOdOQl/lyZyfsIZKEdPcQ3"
+    , "pwd":"EAAAABZvtCaPUSj2UFaEi3baSF9CWla1kIhTiJ0poz1XOCO1UNIZB2l31z3GO2bLtSNVrhY3uqIszUF3HjJlBSAWJnhCeFSoTq54qTrMy86qnLrR87M3veF47/4ZGWZaiohexQ=="
+    , "key":"EAAAAHlTHSmVOvvR3LnkmS7aWCVD+hl00qc92f4fT+9vwaF3VWObeWKOxC2FFllQABHiiA=="
+}	
+
+
+POST https://recaudacion.yucatan.gob.mx/services/kiosko/consulta
+Content-Type: application/xml
+token: EAAAAOZjgeOS72Zl6zni+7JAF9mQdVQA0lvby/WAT1SImhMAwj8Rh5m8rI4w7jRniomSweSV9UgjYIfwRxFYv3aLIrYnDw3QD1RhwY/mVW1eIxiL6ao9Pm0LOEXVEfU/Zc3a12Ce0n1I7IYhhSj+EcadTDmSZZBqoB8aY3d1hlL8eW2ReU4LdhQauipGUFwFuF8TpQ==
+	
+	
+curl  https://wsseguridad.yucatan.gob.mx/WSSession.asmx/IniciaSesion -H 'Content-Type: application/json' \
+--data '{"usuario":"EAAAACzY7FnqgEmLlyhlJQHdeyTOdOQl/lyZyfsIZKEdPcQ3", "pwd":"EAAAABZvtCaPUSj2UFaEi3baSF9CWla1kIhTiJ0poz1XOCO1UNIZB2l31z3GO2bLtSNVrhY3uqIszUF3HjJlBSAWJnhCeFSoTq54qTrMy86qnLrR87M3veF47/4ZGWZaiohexQ==", "key":"EAAAAHlTHSmVOvvR3LnkmS7aWCVD+hl00qc92f4fT+9vwaF3VWObeWKOxC2FFllQABHiiA=="}'
+
+
+curl -X POST'https://recaudacion.yucatan.gob.mx/services/kiosko/consulta' -H 'token: EAAAAB28XokghN3+bzQhfr7AG+hDbVee5ZNaTGlaXh6uTN2xbQ2uz2/O9hfrjBNRbMYcSAGXTyYvjFeldYnkPS8pGCk3DsIulikWRz5MV6TwZHBCg2vuaRX+5i8jrKuURPke1mprRTraEe6O5NJU89f+26sCWVS84NgWVzbCbDfYH5J1DqWubYupx4UrrEEnTtSGow==' H 'Content-Type: application/json' \
+--data '{ "referencia":"121224181235501795844637252" }'
